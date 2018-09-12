@@ -20,6 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import java.util.List;
 import static org.junit.Assert.*;
 
@@ -89,6 +90,7 @@ public class ServiceRepositorioTest {
     private Marinete populateMarinete(){
         Marinete marinete = new Marinete();
         marinete.setName("Marinete");
+        marinete.setEmail("marinete@hotmail.com");
         marinete.setCtps(12356);
         marinete.setEvaluation(10);
         return marinete;
@@ -101,6 +103,7 @@ public class ServiceRepositorioTest {
         serv.setLocalization("UFAL");
         serv.setPrice(BigDecimal.valueOf(10));
         serv.setStatus(StatusEnum.ACTIVE);
+        serv.setServiceDate(new Date());
         serv.setMarinete(marinete);
         serv.setUser(user);
         return serv;

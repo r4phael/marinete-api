@@ -27,7 +27,9 @@ public class MarineteRepositoryTest {
     public void beforeTest() throws Exception{
         Marinete marinete = new Marinete();
         marinete.setName("Luiza");
+        marinete.setEmail("Luiza@Marinete.com.br");
         marinete.setCtps(CTPS);
+        marinete.setEvaluation(10);
         this.marineteRepository.save(marinete);
     }
 
