@@ -1,15 +1,11 @@
 package br.com.marinete.api.services;
 
-import br.com.marinete.api.entities.Marinete;
 import br.com.marinete.api.entities.Service;
-import br.com.marinete.api.repositories.MarineteRepository;
 import br.com.marinete.api.repositories.ServiceRepository;
-import com.sun.xml.internal.bind.v2.TODO;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

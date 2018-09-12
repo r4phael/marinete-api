@@ -1,7 +1,6 @@
 package br.com.marinete.api.services;
 
 
-import br.com.marinete.api.entities.Marinete;
 import br.com.marinete.api.entities.User;
 import br.com.marinete.api.repositories.UserRepository;
 import org.junit.Before;
