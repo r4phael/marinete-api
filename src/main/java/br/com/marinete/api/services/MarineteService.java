@@ -24,5 +24,13 @@ public interface MarineteService {
 
     Marinete persist(Marinete marinete);
 
+    /**
+     * Find a Marinete by ID
+     *
+     * @param id
+     * @return Marinete
+     */
+    Optional<Marinete> findMarineteById(Long id);
+
 
 }

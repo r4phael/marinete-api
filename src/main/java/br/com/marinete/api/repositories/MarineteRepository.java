@@ -10,4 +10,7 @@ public interface MarineteRepository extends JpaRepository<Marinete, Integer> {
     @Transactional(readOnly =true)
     Marinete findByCtps(Integer ctps);
 
+    @Transactional(readOnly = true)
+    Marinete findById(Long id);
+
 }

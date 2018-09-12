@@ -31,4 +31,10 @@ public class MarineteServiceImpl implements MarineteService{
         log.info("Saving Marinete: {}", marinete);
         return this.marineteRepository.save(marinete);
     }
+
+    @Override
+    public Optional<Marinete> findMarineteById(Long id) {
+        log.info("Finding Marinete by id {}", id);
+        return Optional.ofNullable(this.marineteRepository.findById(id));
+    }
 }

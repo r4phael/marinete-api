@@ -21,6 +21,7 @@ public class Service implements Serializable {
     private Date createdDate;
     private Date updateDate;
     private String localization;
+    private Date serviceDate;
     private Marinete marinete;
     private User user;
 
@@ -137,6 +138,15 @@ public class Service implements Serializable {
         updateDate = currentDate;
     }
 
+    @Column(name = "service_date", nullable = false)
+    public Date getServiceDate() {
+        return serviceDate;
+    }
+
+    public void setServiceDate(Date serviceDate) {
+        this.serviceDate = serviceDate;
+    }
+
     @Override
     public String toString() {
         return "Service{" +
@@ -148,8 +158,9 @@ public class Service implements Serializable {
                 ", createdDate=" + createdDate +
                 ", updateDate=" + updateDate +
                 ", localization='" + localization + '\'' +
-                ", marinetes=" + marinete +
-                //", user=" + user +
+                ", serviceDate=" + serviceDate +
+                ", marinete=" + marinete +
+                ", user=" + user +
                 '}';
     }
 }
