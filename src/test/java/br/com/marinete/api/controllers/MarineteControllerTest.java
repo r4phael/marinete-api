@@ -82,7 +82,6 @@ public class MarineteControllerTest {
         return marinete;
     }
 
-    //TODO Test Case to Validation of CTPS [See in websites the math]
 
 
 }

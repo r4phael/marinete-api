@@ -53,7 +53,6 @@ public class ServiceController {
     }
 
 
-    //TODO Add the list of services by User :)
 
     /**
      * Return the list of services by a Marinete
@@ -71,7 +70,7 @@ public class ServiceController {
         log.info("Finding services by id of Marinete: {}, page: {}", marineteId, pag);
         Response<Page<ServiceDto>> response = new  Response<Page<ServiceDto>>();
 
-        PageRequest pageRequest = new PageRequest(pag, Integer.parseInt(this.amountPerPage), Sort.Direction.valueOf(dir), ord);
+        PageRequest pageRequest = PageRequest.of(pag, Integer.parseInt(this.amountPerPage), Sort.Direction.valueOf(dir), ord);
         Page<Service> services = this.serviceServ.findByMarineteId(marineteId, pageRequest);
         Page<ServiceDto> serviceDto = services.map(service -> this.convertServiceDto(service));
 
@@ -168,7 +167,6 @@ public class ServiceController {
 
     }
 
-    //TODO Delete logical (Use the @DeleteMapping, but only updating the status of Marinete or User)
     /**
      * Delete the service in database
      *

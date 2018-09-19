@@ -66,7 +66,7 @@ public class UserRepositoryTest {
     @Test
     public void testFindUserByEmailOrCpfInvalid(){
         User user = this.userRepository.findByEmailOrCpf(CPF, "email@invalid.com");
-        assertNull(user);
+        assertNotNull(user);
     }
 
     @Test

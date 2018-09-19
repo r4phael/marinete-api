@@ -69,7 +69,7 @@ public class ServiceRepositorioTest {
 
     @Test
     public void testFindServiceByMarineteIdPaged(){
-        PageRequest page = new PageRequest(0,10);
+        PageRequest page =PageRequest.of(0,10);
         Page<Service> servicePage = this.serviceRepository.findByMarineteId(marineteId, page);
 
         assertEquals(2, servicePage.getTotalElements());

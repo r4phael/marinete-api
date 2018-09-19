@@ -96,4 +96,17 @@ public class User implements Serializable {
     public void setServiceList(List<Service> serviceList) {
         this.serviceList = serviceList;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", profile=" + profile +
+                ", serviceList=" + serviceList +
+                '}';
+    }
 }

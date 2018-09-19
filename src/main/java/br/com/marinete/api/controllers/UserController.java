@@ -82,8 +82,6 @@ public class UserController {
         userDto.setEmail(user.getEmail());
         userDto.setName(user.getName());
 
-        //TODO Put Profile Enum?
-
         return userDto;
     }
 

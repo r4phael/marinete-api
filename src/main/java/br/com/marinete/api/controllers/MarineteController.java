@@ -49,7 +49,6 @@ public class MarineteController {
         if (result.hasErrors()){
             log.error("Error in validation of Marinete data: {}", result.getAllErrors());
             result.getAllErrors().forEach(objectError -> response.getErrors().add(objectError.getDefaultMessage()));
-            //TODO: Add a example without lambda expressions.
             return ResponseEntity.badRequest().body(response);
         }
 
@@ -129,7 +128,6 @@ public class MarineteController {
         this.marineteService.findByCtps(marineteDto.getCtps()).
                 ifPresent(marinete -> result.addError(new ObjectError("empresa", "Marinette already existing")));
 
-        //TODO: Add email in validation of marinete (Create a service findByEmail);
     }
 
 

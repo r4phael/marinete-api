@@ -113,7 +113,6 @@ public class ServiceControllerTest {
                 .andExpect(status().isOk());
     }
 
-    //TODO Create a test for Get and Put[?]
 
 
     private String getJsonPost() throws JsonProcessingException{

@@ -43,7 +43,7 @@ public class ServiceServiceTest {
 
     @Test
     public void testFindServiceByMarineteId(){
-        Page<Service> service = this.serviceService.findByMarineteId(1, new PageRequest(0,10));
+        Page<Service> service = this.serviceService.findByMarineteId(1, PageRequest.of(0,10));
         assertNotNull(service);
     }
 
@@ -59,6 +59,5 @@ public class ServiceServiceTest {
         assertNotNull(service);
     }
 
-    //TODO: Tests with delete service.
 
 }

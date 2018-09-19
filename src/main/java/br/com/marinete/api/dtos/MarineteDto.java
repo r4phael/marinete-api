@@ -15,7 +15,6 @@ public class MarineteDto {
     private int evaluation;
     private String email;
 
-    //TODO: Put price in A Optional Atribute (In Application, but @column in DB) and use PUT (Value)
 
     public MarineteDto() {
     }
