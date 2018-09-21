@@ -15,6 +15,7 @@ public class MarineteApiApplication {
         SpringApplication.run(MarineteApiApplication.class, args);
     }
 
+    /*
     @Configuration
     protected static class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 
@@ -27,4 +28,5 @@ public class MarineteApiApplication {
         }
 
     }
+    */
 }

@@ -13,7 +13,6 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.text.ParseException;
 import java.util.Optional;
 
 @RestController
@@ -83,6 +82,8 @@ public class MarineteController {
 
     }
 
+    //TODO : Gerar uma requisição de listar todas as marinete (@jsonignore) annotation
+
     /**
      * Convert a Marinete to a DTO object
      *
@@ -103,7 +104,7 @@ public class MarineteController {
     }
 
     /**
-     * Convert one DTO object oto a Marinete.
+     * Convert one DTO object to a Marinete.
      * @param marineteDto
      * @return
      */
