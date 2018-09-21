@@ -21,7 +21,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.nio.file.Path;
 
 @Configuration
-@Profile("dev")
+//@Profile("dev")
 @EnableSwagger2
 public class SwaggerConfig {
 
