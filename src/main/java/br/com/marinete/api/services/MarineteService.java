@@ -2,6 +2,7 @@ package br.com.marinete.api.services;
 
 import br.com.marinete.api.entities.Marinete;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface MarineteService {
@@ -31,6 +32,15 @@ public interface MarineteService {
      * @return Marinete
      */
     Optional<Marinete> findMarineteById(Long id);
+
+    /**
+     * get All Marinetes
+     *
+     * @o
+     */
+
+    List<Marinete> findAll();
+
 
 
 }

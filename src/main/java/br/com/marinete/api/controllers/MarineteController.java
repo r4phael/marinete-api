@@ -13,6 +13,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -82,7 +83,32 @@ public class MarineteController {
 
     }
 
-    //TODO : Gerar uma requisição de listar todas as marinete (@jsonignore) annotation
+
+    /**
+     * get All Marinetes
+     *
+     * @o
+     */
+
+
+    @GetMapping(produces = "application/json")
+    public ResponseEntity<Response<List<Marinete>>> listMarinetes(){
+        log.info("Finding all marinetes in database");
+
+        Response<List<Marinete>> response = new Response<>();
+        List<Marinete> marinetes = marineteService.findAll();
+
+        if (marinetes.isEmpty()){
+            log.info("Marinete not found in database");
+            response.getErrors().add("Marinete not found in database");
+            return ResponseEntity.badRequest().body(response);
+
+        }
+
+        response.setData(marinetes);
+        return ResponseEntity.ok(response);
+    }
+
 
     /**
      * Convert a Marinete to a DTO object

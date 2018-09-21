@@ -2,6 +2,8 @@ package br.com.marinete.api.entities;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -69,6 +71,7 @@ public class Marinete implements Serializable {
         this.email = email;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "marinete", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public List<Service> getServiceList() {
         return serviceList;

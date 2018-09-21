@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -36,5 +37,11 @@ public class MarineteServiceImpl implements MarineteService{
     public Optional<Marinete> findMarineteById(Long id) {
         log.info("Finding Marinete by id {}", id);
         return Optional.ofNullable(this.marineteRepository.findById(id));
+    }
+
+    @Override
+    public List<Marinete> findAll() {
+        log.info("Finding all marinetes in database");
+        return this.marineteRepository.findAll();
     }
 }

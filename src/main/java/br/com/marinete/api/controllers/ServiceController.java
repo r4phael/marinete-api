@@ -87,7 +87,7 @@ public class ServiceController {
      * @return ResponseEntity<Response<ServiceDto>>
      */
 
-    @GetMapping(value = "{/id}")
+    @GetMapping(value = "/id/{id}")
     public ResponseEntity<Response<ServiceDto>> listById (@PathVariable("id") Long id){
         log.info("Fidingin service by Id: {}", id);
         Response<ServiceDto> response = new Response<>();

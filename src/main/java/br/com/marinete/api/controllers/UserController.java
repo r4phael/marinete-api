@@ -3,6 +3,7 @@ package br.com.marinete.api.controllers;
 
 import br.com.marinete.api.dtos.UserDto;
 import br.com.marinete.api.entities.User;
+import br.com.marinete.api.enums.ProfileEnum;
 import br.com.marinete.api.response.Response;
 import br.com.marinete.api.services.UserService;
 import br.com.marinete.api.utils.PasswordUtils;
@@ -67,6 +68,28 @@ public class UserController {
 
     }
 
+    @PostMapping
+    public ResponseEntity<Response<UserDto>> save(@Valid @RequestBody UserDto userDto, BindingResult result) throws Exception {
+
+        log.info("Saving User: {}", userDto.toString());
+        Response<UserDto> response = new Response<UserDto>();
+
+        validateUserData(userDto, result);
+        User user = this.convertDtoToUser(userDto);
+
+        if (result.hasErrors()){
+            log.error("Error in validation of User data: {}", result.getAllErrors());
+            result.getAllErrors().forEach(objectError -> response.getErrors().add(objectError.getDefaultMessage()));
+            return ResponseEntity.badRequest().body(response);
+        }
+
+        this.userService.persist(user);
+        response.setData(this.convertUserToDto(user));
+
+        return ResponseEntity.ok(response);
+
+    }
+
     /**
      * Return one User DTO.
      *
@@ -84,6 +107,25 @@ public class UserController {
 
         return userDto;
     }
+
+    /**
+     * Convert userDTo to User.
+     *
+     * @param userDto
+     * @return User
+     */
+    private User convertDtoToUser(UserDto userDto) {
+        User user = new User();
+        user.setName(userDto.getName());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(PasswordUtils.genBcrypt(userDto.getPassword().get()));
+        user.setCpf(userDto.getCpf());
+        user.setProfile(ProfileEnum.ROLE_USER);
+
+        return user;
+
+    }
+
 
     /**
      *Update the data of user with data found in DTO object.
@@ -109,6 +151,17 @@ public class UserController {
         }
 
 
+    }
+
+    /**
+     * Verify if the user exists in database.
+     *
+     * @param userDto
+     * @param result
+     */
+    private void validateUserData(UserDto userDto, BindingResult result) {
+        this.userService.findByEmail(userDto.getEmail()).
+                ifPresent(user -> result.addError(new ObjectError("user", "User already existing")));
     }
 
 
