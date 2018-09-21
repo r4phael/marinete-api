@@ -4,7 +4,6 @@ import br.com.marinete.api.entities.User;
 import br.com.marinete.api.enums.ProfileEnum;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import sun.java2d.cmm.Profile;
 
 import java.util.ArrayList;
 import java.util.List;
