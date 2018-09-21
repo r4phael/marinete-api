@@ -41,7 +41,7 @@ public class AuthenticationController {
     private UserDetailsService userDetailsService;
 
     /**
-     * Gera e retorna um novo token JWT.
+     * Gen and return a new JWT Token.
      *
      * @param authenticationDto
      * @param result
@@ -49,7 +49,7 @@ public class AuthenticationController {
      * @throws AuthenticationException
      */
     @PostMapping
-    public ResponseEntity<Response<TokenDto>> gerarTokenJwt(
+    public ResponseEntity<Response<TokenDto>> genTokenJwt(
             @Valid @RequestBody JwtAuthenticationDto authenticationDto, BindingResult result)
             throws AuthenticationException {
         Response<TokenDto> response = new Response<TokenDto>();
@@ -73,13 +73,13 @@ public class AuthenticationController {
     }
 
     /**
-     * Gera um novo token com uma nova data de expiração.
+     * Generates a new token with a new expiration date.
      *
      * @param request
      * @return ResponseEntity<Response<TokenDto>>
      */
     @PostMapping(value = "/refresh")
-    public ResponseEntity<Response<TokenDto>> gerarRefreshTokenJwt(HttpServletRequest request) {
+    public ResponseEntity<Response<TokenDto>> genRefreshTokenJwt(HttpServletRequest request) {
         log.info("Refreshing token JWT.");
         Response<TokenDto> response = new Response<TokenDto>();
         Optional<String> token = Optional.ofNullable(request.getHeader(TOKEN_HEADER));
